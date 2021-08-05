@@ -76,8 +76,8 @@ est_final <- hb_estimation(muestra_1,
 ```{r}
 est_final %>% 
   mutate(across(where(is_double),~round(100 * .x, 1))) %>% 
+  select(-ee) %>% 
   arrange(desc(median))
-
 ```
 
 
@@ -136,7 +136,7 @@ transformed data {
   }
   total_nominal = 0;
   for(i in 1:N_f){
-    if(n_f[i] < 2200){ # cambio para conteo rapido de consulta: 2200 en lugar de 1200
+    if(n_f[i] < 3000){ # cambio para conteo rapido de consulta: 3000 en lugar de 1200
       total_nominal += n_f[i];
     }
   }
